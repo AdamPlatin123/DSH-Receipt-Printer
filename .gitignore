@@ -1,0 +1,26 @@
+# Node
+node_modules/
+*.log
+npm-debug.log*
+
+# Local tooling runtimes (Node 24 portable, pinned dsh, desktop installer)
+# - way too large for git; see README for how to rebuild them
+.tools/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Test / debug artifacts
+.thermal-debug.log
+thermal-apply.marker
+*.bin
+test/output/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.video_agent/

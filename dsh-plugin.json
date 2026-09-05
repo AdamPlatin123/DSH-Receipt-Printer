@@ -1,0 +1,33 @@
+{
+  "manifestVersion": "0.15",
+  "identity": {
+    "name": "dsh-thermal-receipt",
+    "package": "dsh-thermal-receipt",
+    "version": "0.1.0",
+    "description": "Print an ESC/POS 58mm thermal receipt on every DSH turn end (works in dsh-tui and dsh-desktop via the core session/event seam)"
+  },
+  "facets": {
+    "host": {
+      "entry": "./lib/index.js",
+      "apiVersion": "0.15"
+    }
+  },
+  "requires": {
+    "contracts": []
+  },
+  "permissions": [
+    {
+      "kind": "process.spawn",
+      "reason": "Spawn the bundled Python bridge (vendor/thermal_bridge.py) to send raw ESC/POS bytes to the local thermal printer via Win32 spooler"
+    }
+  ],
+  "subscriptions": [
+    "session/event",
+    "session/disposed",
+    "agent/status"
+  ],
+  "_notes": {
+    "evidence": "Parsed-level: manifest follows the v0.15 community-consensus field names (facets.host / requires.contracts / permissions / subscriptions). Not admitted against a real dsh-TUI Host; treat as experimental until negotiated. The DSH-core compatibility surface (dsh.bundle.patch + cordis.patch.yml) is the load-bearing contract - it works with the official `dsh plugin add` today.",
+    "no-provides": "v0.15 rejects `provides`/`services` facets; this plugin only subscribes and spawns - it provides no Cordis services."
+  }
+}
