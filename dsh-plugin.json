@@ -25,9 +25,5 @@
     "session/event",
     "session/disposed",
     "agent/status"
-  ],
-  "_notes": {
-    "evidence": "Parsed-level: manifest follows the v0.15 community-consensus field names (facets.host / requires.contracts / permissions / subscriptions). Not admitted against a real dsh-TUI Host; treat as experimental until negotiated. The DSH-core compatibility surface (dsh.bundle.patch + cordis.patch.yml) is the load-bearing contract - it works with the official `dsh plugin add` today.",
-    "no-provides": "v0.15 rejects `provides`/`services` facets; this plugin only subscribes and spawns - it provides no Cordis services."
-  }
+  ]
 }

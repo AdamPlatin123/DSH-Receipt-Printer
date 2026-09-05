@@ -8,8 +8,7 @@ stdout: 一行 OK / ERR:... (供 TS 端诊断)
 零第三方 Python 依赖 (仅标准库 ctypes + winspool.drv).
 
 为什么单文件自包含: DSH 插件分发要满足 Git 安装即用, 不依赖外部仓库路径.
-渲染逻辑与根目录 renderer.py 同源 (58mm / 384 dots / GBK / ■□ 安全字符),
-但此处刻意不 import 根目录模块, 保证插件包单独可分发.
+ESC/POS 渲染 (58mm / 384 dots / GBK / ■□ 安全字符) 全部内联在本文件.
 """
 from __future__ import annotations
 
@@ -147,7 +146,7 @@ def wrap_text(text: str, width: int = LINE_UNITS, max_lines=None) -> list:
 
 
 class R:
-    """链式 ESC/POS 构建器 (与根目录 renderer.py 同形, 自包含副本)."""
+    """链式 ESC/POS 构建器 (receipt 原语层)."""
 
     def __init__(self):
         self.parts = [ESC_INIT]
