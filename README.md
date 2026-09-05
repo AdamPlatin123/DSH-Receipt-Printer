@@ -36,7 +36,7 @@ RECAP                    ← LLM 自动生成
 ```sh
 # 前置: Node ≥ 22.15 (DSH zstd 依赖, 推荐 24)、pnpm ≥ 10、Python 3.10+
 #       一台已配好 Win32 打印队列的 58mm ESC/POS 热敏打印机
-dsh plugin add "github:<your-fork>/thermal-printer"
+dsh plugin add "github:AdamPlatin123/thermal-printer"
 # 或本地路径
 dsh plugin add "file:/path/to/thermal-printer"
 # 重启 dsh-tui / dsh-desktop, 对话一轮 → turn 结束自动吐小票
