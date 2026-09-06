@@ -1,5 +1,5 @@
 /**
- * dsh-thermal-receipt - DSH plugin that prints an ESC/POS thermal receipt
+ * DSH Receipt Printer - DSH plugin that prints an ESC/POS thermal receipt
  * (58mm) every time a DSH turn finishes.
  *
  * Works identically in dsh-tui and dsh-desktop: both are DSH Host runtimes
@@ -15,7 +15,7 @@ import { miniSchema } from './schema.js'
 import { ReceiptCollector } from './collector.js'
 import { registerReceiptEventTypes } from './registration.js'
 
-export const name = 'dsh-thermal-receipt'
+export const name = 'dsh-receipt-printer'
 
 export const usage = ` Thermal Receipt - print a 58mm receipt when a DSH turn ends.
 Config (cordis.patch.yml row "config"):

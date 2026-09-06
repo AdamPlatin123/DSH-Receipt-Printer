@@ -24,7 +24,7 @@ export function miniSchema<T extends object>(spec: MiniSchemaSpec<T>): StandardS
   return {
     '~standard': {
       version: 1,
-      vendor: 'dsh-thermal-receipt',
+      vendor: 'dsh-receipt-printer',
       validate(value: unknown): StandardSchemaV1.Result<T> {
         if (value !== undefined && value !== null && typeof value !== 'object') {
           return { issues: [{ message: `config must be an object, got ${typeof value}` }] }

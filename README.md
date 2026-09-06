@@ -1,4 +1,4 @@
-# dsh-thermal-receipt
+# DSH Receipt Printer
 
 > **Agent 工作小票** — 把每个 DSH agent session 的关键统计 + LLM 自动任务回执打成一张 58mm 物理热敏小票。
 
@@ -9,7 +9,7 @@
 ```
 DSH RECEIPT
 2026-09-06 01:13        host dsh-tui
-项目        thermal-printer
+项目        DSH-Receipt-Printer
 时长                  00:23:45
 轮次                          3
 模型         deepseek-v4-flash
@@ -36,9 +36,9 @@ RECAP                    ← LLM 自动生成
 ```sh
 # 前置: Node ≥ 22.15 (DSH zstd 依赖, 推荐 24)、pnpm ≥ 10、Python 3.10+
 #       一台已配好 Win32 打印队列的 58mm ESC/POS 热敏打印机
-dsh plugin add "github:AdamPlatin123/thermal-printer"
+dsh plugin add "github:AdamPlatin123/DSH-Receipt-Printer"
 # 或本地 checkout
-dsh plugin add "file:/abs/path/to/thermal-printer"
+dsh plugin add "file:/abs/path/to/DSH-Receipt-Printer"
 # 重启 dsh-tui / dsh-desktop, 对话一轮 → turn 结束自动吐小票
 ```
 
@@ -87,7 +87,7 @@ turn/session 结束时 plugin **主动调 `llm.stream()`** 让 LLM 用自然中�
 
 - `provider`/`model` 从 `session.requestHeader()` 取（与 dsh-tui `/btw` 同源）
 - `reasoningEffort: 'off'` —— reasoning 模型会烧 30s+ 才出文本
-- `source.plugin = 'dsh-thermal-receipt'`（不含 btw/recap，避免被自己的 wrap 拦截）
+- `source.plugin = 'dsh-receipt-printer'`（不含 btw/recap，避免被自己的 wrap 拦截）
 - **降级链**：LLM 不可用 / 超时 / 流空 → 自动退回纯统计小票
 
 **踩坑记录**（都已修）：
@@ -150,7 +150,7 @@ printerName: Thermal-58  # Win32 打印队列名
 ## Plugin 文件结构（DSH 官方 bundle 模式）
 
 ```
-thermal-printer/
+DSH-Receipt-Printer/
 ├── package.json          # dsh.bundle.patch → cordis.patch.yml
 ├── cordis.patch.yml      # insert plugin row + config defaults
 ├── dsh-plugin.json       # v0.15 manifest (社区共识字段)
@@ -192,7 +192,7 @@ thermal-printer/
 | dsh CLI | 0.1.2-alpha.2/3（内部包全钉同版） | dsh-tui peer 范围 |
 | dsh-tui | 0.10.0-beta.5 | launcher 全局命令 `dsh-tui` |
 | pnpm | 11.25.0 | profile 内插件管理 |
-| 本 plugin | 0.1.1 | headless / dsh-tui / desktop 三 profile 实测 |
+| 本 plugin | 0.2.0 | headless / dsh-tui / desktop 三 profile 实测 |
 
 ## 硬件适配
 
@@ -235,7 +235,7 @@ python vendor/thermal_bridge.py --printer Thermal-58 --dry-run <<<'{"sessionId":
 
 ### 生态
 
-- [ ] npm publish（`dsh plugin add dsh-thermal-receipt` 一行安装）
+- [ ] npm publish（`dsh plugin add dsh-receipt-printer` 一行安装）
 - [ ] dsh-tui-ecosystem / dsh.pub 目录收录
 - [ ] dsh-plugin.json v0.15 真实 Host 准入认证
 

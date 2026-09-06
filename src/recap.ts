@@ -5,7 +5,7 @@
  *
  * The call is tool-less, single-turn, and never enters the session log -
  * same semantics as dsh-tui's /btw sideQuestion, but initiated by us with
- * source.plugin = 'dsh-thermal-receipt' so our own llm.stream wrap in btw.ts
+ * source.plugin = 'dsh-receipt-printer' so our own llm.stream wrap in btw.ts
  * does NOT intercept it (no 'btw'/'recap' keyword in the tag).
  */
 import { createRequire } from 'node:module'
@@ -92,7 +92,7 @@ export async function generateRecap(
         content: [{ type: 'text', text: buildRecapPrompt(stats) }],
         // Deliberately NO 'btw'/'recap' substring: our btw.ts wrap must not
         // intercept our own auto-recap call.
-        source: { kind: 'plugin', plugin: 'dsh-thermal-receipt' },
+        source: { kind: 'plugin', plugin: 'dsh-receipt-printer' },
       },
     ],
     sessionId: stats.sessionId,

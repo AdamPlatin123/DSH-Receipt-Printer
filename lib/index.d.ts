@@ -1,5 +1,5 @@
 /**
- * dsh-thermal-receipt - DSH plugin that prints an ESC/POS thermal receipt
+ * DSH Receipt Printer - DSH plugin that prints an ESC/POS thermal receipt
  * (58mm) every time a DSH turn finishes.
  *
  * Works identically in dsh-tui and dsh-desktop: both are DSH Host runtimes
@@ -10,7 +10,7 @@
  *   export const name / Config (StandardSchemaV1) / apply(ctx, config)
  */
 import type { Context } from '@deepseek-ai/cordis';
-export declare const name = "dsh-thermal-receipt";
+export declare const name = "dsh-receipt-printer";
 export declare const usage = " Thermal Receipt - print a 58mm receipt when a DSH turn ends.\nConfig (cordis.patch.yml row \"config\"):\n  enabled        boolean  default true\n  pythonCmd      string   default \"python\"       Python interpreter with ctypes (Windows)\n  printerName    string   default \"Thermal-58\"   Win32 spooler queue name\n  trigger        enum     \"turn-end\" | \"session-end\" | \"manual\"\n  minIntervalSec number   default 60             debounce (skip if printed < N sec ago)\n  bridgePath     string   default \"\"             override path to thermal_bridge.py\n  debug          boolean  default false          bridge prints diagnostics\n";
 export interface Config {
     enabled: boolean;

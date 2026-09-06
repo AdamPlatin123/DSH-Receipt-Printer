@@ -1,13 +1,13 @@
 # DSH bundle composition layer (dsh.pub develop-plugin.md contract).
-# `dsh plugin add dsh-thermal-receipt` reads this file and inserts the row below
+# `dsh plugin add dsh-receipt-printer` reads this file and inserts the row below
 # into the active profile's Cordis composition.
 #
 # dryRun: false -> every trigger sends REAL bytes to the printer. Set to true
 # to render + preview on stderr without spending paper; auto-recap keeps
 # running either way so the merged receipt content stays verifiable.
 - insert:
-    - id: dsh-thermal-receipt
-      name: 'dsh-thermal-receipt'
+    - id: dsh-receipt-printer
+      name: 'dsh-receipt-printer'
       config:
         enabled: true
         pythonCmd: python

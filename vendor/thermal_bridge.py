@@ -334,7 +334,7 @@ def render_receipt(s: dict) -> bytes:
 
     # Footer + QR
     r.divider("=")
-    r.center("dsh-thermal-receipt")
+    r.center("DSH Receipt Printer")
     r.center(f"session {str(s.get('sessionId', ''))[:8]}")
     r.qr(f"dsh-session://{s.get('sessionId', 'unknown')}")
     r.cut()

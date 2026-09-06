@@ -62,7 +62,7 @@ class MockContext {
 
 // ---- 1. plugin contract ----
 console.log('1. plugin contract')
-check('exports name', typeof plugin.name === 'string' && plugin.name === 'dsh-thermal-receipt')
+check('exports name', typeof plugin.name === 'string' && plugin.name === 'dsh-receipt-printer')
 check('exports apply function', typeof plugin.apply === 'function')
 check('exports StandardSchemaV1 Config', plugin.Config?.['~standard']?.version === 1)
 
