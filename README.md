@@ -192,7 +192,7 @@ thermal-printer/
 | dsh CLI | 0.1.2-alpha.2/3（内部包全钉同版） | dsh-tui peer 范围 |
 | dsh-tui | 0.10.0-beta.5 | launcher 全局命令 `dsh-tui` |
 | pnpm | 11.25.0 | profile 内插件管理 |
-| 本 plugin | 0.1.0 | headless / dsh-tui / desktop 三 profile 实测 |
+| 本 plugin | 0.1.1 | headless / dsh-tui / desktop 三 profile 实测 |
 
 ## 硬件适配
 

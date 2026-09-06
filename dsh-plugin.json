@@ -3,7 +3,7 @@
   "identity": {
     "name": "dsh-thermal-receipt",
     "package": "dsh-thermal-receipt",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Print an ESC/POS 58mm thermal receipt on every DSH turn end (works in dsh-tui and dsh-desktop via the core session/event seam)"
   },
   "facets": {
